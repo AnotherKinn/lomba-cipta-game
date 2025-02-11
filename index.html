@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Sorter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Eco Sorter</h1>
+        <div id="info">
+            <p>Skor: <span id="score">0</span></p>
+            <p>Level: <span id="level">1</span></p>
+            <p>Waktu: <span id="timer">60</span> detik</p>
+        </div>
+        <div id="waste-container">
+            <div id="line-indicator"></div> <!-- Garis pembatas -->
+        </div>        
+        <div id="waste-container"></div>
+        <div id="bin-container">
+            <button id="organic">A - Organik ♻️</button>
+            <button id="anorganic">S - Anorganik 🗑</button>
+            <button id="metal">D - Logam 🔩</button>
+        </div>
+        <div id="level-controls">
+            <div class="level-button-container">
+                <img id="prev-level" src="img/previous.png" alt="Level Sebelumnya" disabled>
+                <span class="level-text">Level Sebelumnya</span>
+            </div>
+            <div class="level-button-container">
+                <img id="next-level" src="/img/next.png" alt="Level Selanjutnya" disabled>
+                <span class="level-text">Level Selanjutnya</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
