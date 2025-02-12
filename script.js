@@ -6,6 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const prevLevelBtn = document.querySelector(".level-button-container:nth-child(1) img");
     const nextLevelBtn = document.querySelector(".level-button-container:nth-child(2) img");
 
+    const homeButton = document.querySelector(".menu[alt='Home']");
+    const restartButton = document.querySelector(".menu[alt='Restart']");
+    const volumeOnButton = document.querySelector(".menu[alt='Volume-on']");
+    const volumeOffButton = document.querySelector(".menu[alt='Volume-off']");
+
+    const backgroundMusic = new Audio("audio/bgm.mp3");
+    backgroundMusic.loop = true;
+    backgroundMusic.volume = 0.5; // Volume awal
+
     let score = 0;
     let level = 1;
     let dropSpeed = 2000;
@@ -122,6 +131,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelector(".level-button-container:nth-child(2)").addEventListener("click", nextLevel);
     document.querySelector(".level-button-container:nth-child(1)").addEventListener("click", prevLevel);
+
+    // --- Tambahan Fungsi Baru ---
+    
+    // Fungsi kembali ke halaman menu utama
+    homeButton.addEventListener("click", () => {
+        window.location.href = "menu.html"; // Ganti dengan file menu yang sesuai
+    });
+
+    // Fungsi restart game
+    restartButton.addEventListener("click", () => {
+        startGame(); // Memanggil ulang fungsi untuk memulai game dari awal
+    });
+
+    // Fungsi menyalakan suara
+    volumeOnButton.addEventListener("click", () => {
+        backgroundMusic.play();
+    });
+
+    // Fungsi mematikan suara
+    volumeOffButton.addEventListener("click", () => {
+        backgroundMusic.pause();
+    });
 
     startGame();
 });
