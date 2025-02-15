@@ -8,6 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const popupContent = document.getElementById("popup-content");
     const closePopup = document.getElementById("close-popup");
 
+    // Tambahkan efek suara klik
+    const clickSound = new Audio("/assets/sound/click.mp3");
+
+    function playClickSound() {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    }
+
+    // Tambahkan background music
+    const menuMusic = new Audio("/assets/sound/menu.mp3");
+    menuMusic.loop = true;
+    menuMusic.volume = 0.5;
+    menuMusic.play();
+
     // Fungsi untuk menampilkan popup dengan konten dinamis
     function showPopup(content) {
         popupContent.innerHTML = content;
@@ -21,11 +35,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener tombol "Play" -> Menuju ke gameplay.html
     playButton.addEventListener("click", function () {
-        window.location.href = "index.html";
+        playClickSound();
+        menuMusic.pause(); // Hentikan musik saat masuk ke permainan
+        window.location.href = "gameplay.html";
     });
 
     // Event listener tombol "About" -> Menampilkan informasi tentang game
     aboutButton.addEventListener("click", function () {
+        playClickSound();
         showPopup(`
             <h2>Tentang Sort It! Green</h2>
             <p>Sort It! Green adalah permainan edukasi di mana pemain memilah sampah 
@@ -35,26 +52,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event listener tombol "Option" -> Menampilkan pengaturan game
     optionButton.addEventListener("click", function () {
+        playClickSound();
         showPopup(`
-            <h2>Pengaturan</h2>
-            <label><input type="checkbox" id="sound"> Aktifkan Suara</label><br>
-            <label><input type="checkbox" id="vibration"> Aktifkan Getaran</label>
+            <h2>Tips</h2>
+            <p><b>Sampah organik</b> : Merupakan sampah yang mudah terurai dan dapat dijadikan kompos</p>
+            <p></b>Sampah anorganik</b> : Merupakan sampah yang susah diurai dan dapat didaur ulang</p>
+            <p><b>Sampah logam</b> : Merupakan sampah yang biasanya berasal dari aktivitas industri logam</p>
         `);
     });
 
     // Event listener tombol "Info" -> Menampilkan panduan cara bermain
     infoButton.addEventListener("click", function () {
+        playClickSound();
         showPopup(`
             <h2>Cara Bermain</h2>
-            <div>
-                <p style="text-align:start;" >Sampah organik : Organik merupakan sampah sisa makanan dan daun dapat terurai alami dan cocok untuk dijadikan kompos. <br>
-                <p>Sampah anorganik : Anorganik merupakan samapah yang tidak mudah terurai tetapi bisa didaur ulang untuk mengurangi limbah. Contohnya : plastik dan kaca <br>
-                <p>Sampah logam : Logam merupakan sampah yang dapat dilebur dan digunakan kembali dalam berbagai industri. Contohnya : kaleng dan besi <br>
-                </p>
+            <div style="display: flex; justify-content: center; gap: 15px; text-align: center;">
+                <div>
+                    <img src="/assets/img/organik.png" alt="Sampah Organik" width="80">
+                    <p><strong>Tombol A</strong><br>Sampah Organik</p>
+                </div>
+                <div>
+                    <img src="/assets/img/anorganik.png" alt="Sampah Anorganik" width="80">
+                    <p><strong>Tombol S</strong><br>Sampah Anorganik</p>
+                </div>
+                <div>
+                    <img src="/assets/img/logam.png" alt="Sampah Logam" width="80">
+                    <p><strong>Tombol D</strong><br>Sampah Logam</p>
+                </div>
             </div>
         `);
     });
 
     // Event listener untuk tombol close popup
-    closePopup.addEventListener("click", closePopupHandler);
+    closePopup.addEventListener("click", function () {
+        playClickSound();
+        closePopupHandler();
+    });
 });
