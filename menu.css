@@ -14,7 +14,7 @@ body {
     background: linear-gradient(135deg, #4CAF50, #2E7D32);
     color: white;
     text-align: center;
-    background-image: url('/img/background-menu.jpg');
+    background-image: url('/assets/img/background-menu.jpg');
     background-position: bottom;
     background-size: cover;
     overflow-y: hidden;
@@ -27,7 +27,7 @@ body {
     flex-direction: row;
     gap: 20px;
     padding: 40px;
-    background-image: url('img/button-container.png');
+    background-image: url('/assets/img/button-container.png');
     background-position: center;
     background-size: cover;
     border-radius: 15px;
@@ -101,7 +101,7 @@ h1 {
 #popup-box {
     width: 350px;
     height: 250px;
-    background: url('/img/board.png') no-repeat center;
+    background: url('/assets/img/board.png') no-repeat center;
     background-size: cover;
     padding: 20px;
     text-align: center;
@@ -133,10 +133,6 @@ h1 {
     max-width: 80%;
     text-align: center;
 }
-
-
-
-
 /* Tombol close */
 #close-popup {
     position: absolute;
