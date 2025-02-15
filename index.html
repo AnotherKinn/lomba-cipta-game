@@ -4,61 +4,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Sorter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sort It! Green</title>
+    <link rel="stylesheet" href="/assets/style/gameplay.css">
 </head>
 
 <body>
     <div id="game-container">
-        <h1>Eco Sorter</h1>
+        <div class="title">
+            <img src="/assets/img/title-game.png" alt="" width="200">
+        </div>
         <div class="wrapper">
             <div class="info-container">
                 <div class="info-box">
-                    <img src="/img/score.png" alt="Papan Skor" width="40" height="40">
+                    <img src="/assets/img/score.png" alt="Papan Skor" width="40" height="40">
                     <p>Skor: <span id="score">0</span></p>
                 </div>
 
                 <div class="info-box">
-                    <img src="/img/score.png" alt="Papan Level" width="40" height="40">
+                    <img src="/assets/img/score.png" alt="Papan Level" width="40" height="40">
                     <p>Level: <span id="level">1</span></p>
                 </div>
 
                 <div class="info-box">
-                    <img src="/img/score.png" alt="Papan Waktu" width="40" height="40">
+                    <img src="/assets/img/score.png" alt="Papan Waktu" width="40" height="40">
                     <p><span id="timer">60</span> detik</p>
                 </div>
             </div>
 
 
             <div class="main-menu">
-                <img class="menu" src="/img/home.png" alt="Home" disabled width="45" height="45">
-                <img class="menu" src="/img/restart.png" alt="Restart" disabled width="45" height="45">
-                <img class="menu" src="/img/volume-on.png" alt="Volume-on" disabled width="45" height="45">
-                <img class="menu" src="/img/volume-off.png" alt="Volume-off" disabled width="45" height="45">
-
+                <img class="menu" src="/assets/img/home.png" alt="Home" disabled width="45" height="45">
+                <img class="menu" src="/assets/img/restart.png" alt="Restart" disabled width="45" height="45">
+                <img class="menu" src="/assets/img/volume-on.png" alt="Volume-on" disabled width="45" height="45">
+                <img class="menu" src="/assets/img/volume-off.png" alt="Volume-off" disabled width="45" height="45">
             </div>
         </div>
         <div id="waste-container">
             <div id="line-indicator"></div> <!-- Garis pembatas -->
         </div>
-        <div id="waste-container"></div>
+        <div id="waste-container">
+            <img id="bin-bottom" src="/assets/img/dumpster.png" alt="Tong Sampah">
+        </div>
         <div id="bin-container">
-            <button id="organic">A - Organik ♻️</button>
-            <button id="anorganic">S - Anorganik 🗑</button>
-            <button id="metal">D - Logam 🔩</button>
+            <button id="organic"></button>
+            <button id="anorganic"></button>
+            <button id="metal"></button>
         </div>
     </div>
-    <div id="level-controls">
-        <div class="level-button-container">
-            <img id="prev-level" src="img/previous.png" alt="Level Sebelumnya" disabled>
-            <span class="level-text"></span>
+    <div class="wrapper-2">
+        <div class="high-score">
+            <img src="/assets/img/board.png" alt="" width="300" height="150">
+            <p>High Score: <span id="high-score">0</span></p>
         </div>
-        <div class="level-button-container">
-            <img id="next-level" src="/img/next.png" alt="Level Selanjutnya" disabled>
-            <span class="level-text"></span>
+        <div id="level-controls">
+            <div class="level-button-container">
+                <img id="prev-level" src="/assets/img/previous.png" alt="Level Sebelumnya" disabled>
+                <span class="level-text"></span>
+            </div>
+            <div class="level-button-container">
+                <img id="next-level" src="/assets/img/next.png" alt="Level Selanjutnya" disabled>
+                <span class="level-text"></span>
+            </div>
+        </div>
+
+    </div>
+    <div id="overlay"></div>
+    <div id="game-over-popup" class="popup" >
+        <div class="popup-content">
+            <h2>Game Over</h2>
+            <p>Skor Akhir: <span id="final-score">0</span></p>
+            <div class="popup-buttons">
+                <button id="restart-game">Restart</button>
+                <button id="quit-game">Quit</button>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+    
+    <script src="/assets/js/gameplay.js"></script>
 </body>
 
 </html>
